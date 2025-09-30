@@ -1,4 +1,8 @@
-apply plugin: 'com.android.library'
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'maven-publish'
+}
 
 android {
     compileSdkVersion 35
@@ -33,4 +37,23 @@ dependencies {
     implementation 'androidx.annotation:annotation:1.9.1'
     androidTestImplementation 'androidx.test.ext:junit:1.2.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
+}
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
+                // Applies the component for the release build variant.
+                from components.release
+
+                // You can then customize attributes of the publication as shown below.
+                groupId = 'com.github.android-video-call'
+                artifactId = 'JP2ForAndroid'
+                version = '1.0.5'
+            }
+        }
+    }
+    tasks.named("releaseSourcesJar") {
+        enabled = false
+    }
 }
