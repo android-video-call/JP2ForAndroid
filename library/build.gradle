@@ -10,8 +10,8 @@ android {
         namespace "com.gemalto.jp2"
         minSdkVersion 21
         targetSdkVersion 35
-        versionName "1.0.5"
-        versionCode 5
+        versionName "1.0.5.10"
+        versionCode 6
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         externalNativeBuild {
             cmake {
@@ -49,7 +49,7 @@ afterEvaluate {
                 // You can then customize attributes of the publication as shown below.
                 groupId = 'com.github.android-video-call'
                 artifactId = 'JP2ForAndroid'
-                version = '1.0.5'
+                version = '1.0.5.10'
             }
         }
     }
